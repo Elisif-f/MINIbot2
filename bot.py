@@ -51,7 +51,7 @@ async def on_message(message):
         await message.add_reaction(DISLIKE_EMOJI)
         return
 
-   if "пластиковые трусы" in content:
+    if "пластиковые трусы" in content:
         await message.reply("ДА! <:BOSS:1486025422859665510>")
         return
     
