@@ -1,8 +1,25 @@
+
 import discord
-from keep_alive import keep_alive
+from keep_alive import keep_alive  # Эта строчка у вас уже есть
 import os
 import random
-import time
+import asyncio
+from flask import Flask
+from threading import Thread
+
+app = Flask('')
+
+@app.route('/')
+def home():
+    return "Бот miniPomadka23 работает!"
+
+def run():
+
+    app.run(host="0.0.0.0", port=10000)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 
 token = os.getenv("DISCORD_TOKEN")
 print(f"Токен получен: {'ДА' if token else 'НЕТ'}")
@@ -110,5 +127,7 @@ async def on_message(message):
         return
 
 # МЕСТО ДЛЯ ТОКЕНА, НА ГИТХАБЕ ОСТАВИТЬ ПУСТЫМ, ПОТОМ ЗАМЕНЮ НА СЕРВЕРЕ (в кавычках)
-TOKEN = os.getenv("DISCORD_TOKEN")
-client.run(TOKEN)
+if __name__ == "__main__":
+    keep_alive()
+    TOKEN = os.getenv("DISCORD_TOKEN")
+    client.run(TOKEN)
