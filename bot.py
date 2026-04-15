@@ -1,9 +1,12 @@
+import discord
+from keep_alive import keep_alive
+import os
+import random
+import time
+
 token = os.getenv("DISCORD_TOKEN")
 print(f"Токен получен: {'ДА' if token else 'НЕТ'}")
 print(f"Длина токена: {len(token) if token else 0}")
-import discord
-import random
-import os
 
 intents = discord.Intents.default()
 intents.message_content = True
