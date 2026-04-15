@@ -1,3 +1,6 @@
+token = os.getenv("DISCORD_TOKEN")
+print(f"Токен получен: {'ДА' if token else 'НЕТ'}")
+print(f"Длина токена: {len(token) if token else 0}")
 import discord
 import random
 import os
@@ -104,5 +107,5 @@ async def on_message(message):
         return
 
 # МЕСТО ДЛЯ ТОКЕНА, НА ГИТХАБЕ ОСТАВИТЬ ПУСТЫМ, ПОТОМ ЗАМЕНЮ НА СЕРВЕРЕ (в кавычках)
-TOKEN = "DISCORD_TOKEN"
+TOKEN = os.getenv("DISCORD_TOKEN")
 client.run(TOKEN)
